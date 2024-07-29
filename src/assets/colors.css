@@ -1,0 +1,32 @@
+:root {
+    --primary-color: #495e57;
+    --primary-alternate-color: #f4ce14;
+    --secondary-color: #ee9972;
+    --secondary-alternate-color: #fbdabb;
+    --highlight-color: #edefee;
+    --hightlight-alternate-color:#333333;
+  }
+
+  .primary-color {
+    color: var(--primary-color);
+  }
+
+  .primary-alternate-color{
+    color: var(--primary-alternate-color);
+  }
+
+  .secondary-color{
+    color: var(--secondary-color)
+  }
+
+  .secondary-alternate-color{
+    color: var(--secondary-alternate-color);
+  }
+
+  .highlight-color{
+    color: var(--highlight-color);
+  }
+
+  .hightlight-alternate-color{
+    color: var(--hightlight-alternate-color);
+  }
