@@ -1,7 +1,6 @@
 header {
     width: 100%;
     height: 90px;
-    
 }
 
 nav{
@@ -21,12 +20,12 @@ nav{
     font-weight: 900;
 }
 
-li > a{
+.page-links-container li > a{
     text-decoration: none;
     color: black;
 }
 
-img{
+.logo{
     width: 220px;
     height: 70px;
 }
