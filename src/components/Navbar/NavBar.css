@@ -3,29 +3,148 @@ header {
     height: 90px;
 }
 
-nav{
+nav {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 20px;
 }
 
-.page-links-container{
+.page-links-container {
     list-style: none;
     display: flex;
     gap: 30px;
     margin: 0;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 900;
+    transition: all 0.3s ease;
 }
 
-.page-links-container li > a{
+
+
+.page-links-container li>a {
     text-decoration: none;
     color: black;
 }
 
-.logo{
-    width: 220px;
-    height: 70px;
+.links {
+    position: relative;
+    overflow: hidden;
 }
+
+.links span {
+    position: absolute;
+    display: block;
+}
+
+.links span:nth-child(1) {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.links:hover span:nth-child(1) {
+    transform: scaleX(1);
+}
+
+.hamburger {
+    display: none;
+}
+
+
+/* Tablets (768px - 959px) */
+@media (max-width: 959px) {
+    .page-links-container {
+        font-size: 1rem;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 180px;
+        height: 60px;
+    }
+}
+
+/* Smartphones (menos de 768px) */
+@media (max-width: 768px) {
+    header{
+        display: flex;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .page-links-container.hidden {
+        display: none;
+    }
+
+    .page-links-container.show {
+        position: absolute;
+        top: 80px;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        z-index: 1000;
+    }
+
+    .hamburger {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .logo {
+        width: 160px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+/* // Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { }
+
+ // Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+/* // Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+/* // Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+
+
+@media (max-width: 575.98px) {  }
+
+/* // Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+/* // Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+/* // Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
+
+
+
+
+Common Breakpoint Examples
+
+Desktops (960px and above): Ideal for displaying complex layouts with multiple columns.
+Tablets (768px - 959px): May require adjusting column layouts, hiding/showing elements, or increasing font sizes for readability.
+Smartphones (below 768px): Often necessitates single-column layouts, simplified navigation, and optimized image sizes for faster loading.
+*/
