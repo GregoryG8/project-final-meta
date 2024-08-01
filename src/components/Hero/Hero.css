@@ -1,9 +1,9 @@
-.banner-container{
+.banner-container {
     position: relative;
     height: 360px;
 }
 
-.banner{
+.banner {
     display: flex;
     background-color: var(--primary-color);
     height: 285px;
@@ -12,18 +12,18 @@
     padding-left: 18%;
 }
 
-.information{
+.information {
     width: 50%;
 }
 
-.title{
+.title {
     font-size: 4rem;
     margin: 0;
     width: fit-content;
     height: 56px;
 }
 
-.subtitle{
+.subtitle {
     font-size: 2.5rem;
     margin: 0;
     width: fit-content;
@@ -31,14 +31,14 @@
     font-weight: 400;
 }
 
-.description{
+.description {
     width: 284px;
     font-size: 1.25rem;
     margin: 10px 0 20px 0;
     color: white;
 }
 
-.banner-btn{
+.banner-btn {
     font-size: 1.375rem;
     font-weight: bold;
     width: 200px;
@@ -49,11 +49,85 @@
     cursor: pointer;
 }
 
-.banner-img{
+.banner-img {
     position: absolute;
     width: 300px;
     height: 325px;
     bottom: 0;
     right: 18%;
     border-radius: 15px;
+}
+
+/* Tablets (768px - 959px) */
+@media (max-width: 991.98px) {
+
+    .banner {
+        height: 200px;
+        align-items: center;
+        padding-left: 15%;
+    }
+
+    .banner-img{
+        right: 10%;
+        bottom: 140px;
+        width: 180px;
+        height: 200px;
+    }
+
+    .title{
+        font-size: 2rem;
+        height: 30px;
+    }
+
+    .subtitle{
+        font-size: 1.5rem;
+    }
+
+    .description {
+        width: 284px;
+        font-size: 1rem;
+        margin: 10px 0 20px 0;
+        color: white;
+    }
+
+    .banner-btn {
+        font-size: 1rem;
+        width: 150px;
+        height: 45px;
+    }
+}
+
+/* Smartphones (menos de 768px) */
+@media (max-width: 767.98px) {
+    .banner {
+        height: 200px;
+        align-items: center;
+        padding-left: 15%;
+    }
+
+    .banner-img{
+        display: none;
+    }
+
+    .title{
+        font-size: 2rem;
+        height: 30px;
+    }
+
+    .subtitle{
+        font-size: 1.5rem;
+    }
+
+    .description {
+        width: 284px;
+        font-size: 1rem;
+        margin: 10px 0 20px 0;
+        color: white;
+    }
+
+    .banner-btn {
+        font-size: 1rem;
+        width: 150px;
+        height: 45px;
+    }
 }
