@@ -60,6 +60,9 @@
 
 /* Tablets (768px - 959px) */
 @media (max-width: 991.98px) {
+    .banner-container {
+        height: fit-content;
+    }
 
     .banner {
         height: 200px;
@@ -69,7 +72,7 @@
 
     .banner-img{
         right: 10%;
-        bottom: 140px;
+        bottom: 18px;
         width: 180px;
         height: 200px;
     }
