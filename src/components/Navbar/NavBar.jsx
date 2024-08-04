@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./NavBar.css";
 import logo from "../../assets/Logo.svg";
 import hamburger from "../../assets/hamburger.svg";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,9 +18,11 @@ function NavBar() {
             isMenuOpen ? "show" : "hidden"
           }`}
         >
-          <li className="links">
-            <a href="#home">Home</a> <span></span>
-          </li>
+          <Link to="/">
+            <li className="links">
+              <a href="#home">Home</a> <span></span>
+            </li>
+          </Link>
           <li className="links">
             <a href="#about">About</a> <span></span>
           </li>
@@ -36,8 +39,12 @@ function NavBar() {
             <a href="#login">Login</a> <span></span>
           </li>
         </ul>
-          <img className="hamburger" src={hamburger} alt="" onClick={toggleMenu}/>
-
+        <img
+          className="hamburger"
+          src={hamburger}
+          alt=""
+          onClick={toggleMenu}
+        />
       </nav>
     </header>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.css";
 import imagenBanner from "../../assets/restauranfood.jpg";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -15,7 +16,7 @@ function Hero() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <button className="banner-btn karla">Reserve a Table</button>
+          <Link to="/booking"><button className="banner-btn karla">Reserve a Table</button></Link>
         </div>
       </div>
       <img className="banner-img" src={imagenBanner} alt="Banner" />
