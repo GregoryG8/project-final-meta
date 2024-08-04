@@ -10,7 +10,7 @@ function NavBar() {
   };
   return (
     <header>
-      <nav>
+      <nav className="nav-bar">
         <img className="logo" src={logo} alt="Logo" />
         <ul
           className={`page-links-container karla ${

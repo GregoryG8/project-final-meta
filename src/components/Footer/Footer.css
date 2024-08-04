@@ -1,0 +1,53 @@
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 30px;
+}
+
+.logo-footer{
+    display: flex;
+    align-items: center;
+}
+
+.footer-nav{
+    width: 210px;
+}
+
+.title-footer{
+    font-size: 1.875rem;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links{
+    list-style: none;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black;
+}
+
+address > p{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.footer-contact{
+    width: 210px;
+}
+
+.footer-social{
+    width: 210px;
+}
+

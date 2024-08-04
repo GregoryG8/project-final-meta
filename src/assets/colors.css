@@ -1,32 +1,58 @@
 :root {
-    --primary-color: #495e57;
-    --primary-alternate-color: #f4ce14;
-    --secondary-color: #ee9972;
-    --secondary-alternate-color: #fbdabb;
-    --highlight-color: #edefee;
-    --hightlight-alternate-color:#333333;
-  }
+  --primary-color: #495e57;
+  --primary-alternate-color: #f4ce14;
+  --secondary-color: #ee9972;
+  --secondary-alternate-color: #fbdabb;
+  --highlight-color: #edefee;
+  --hightlight-alternate-color: #333333;
+}
 
-  .primary-color {
-    color: var(--primary-color);
-  }
+/* Clases de color de texto */
+.primary-color {
+  color: var(--primary-color);
+}
 
-  .primary-alternate-color{
-    color: var(--primary-alternate-color);
-  }
+.primary-alternate-color {
+  color: var(--primary-alternate-color);
+}
 
-  .secondary-color{
-    color: var(--secondary-color)
-  }
+.secondary-color {
+  color: var(--secondary-color);
+}
 
-  .secondary-alternate-color{
-    color: var(--secondary-alternate-color);
-  }
+.secondary-alternate-color {
+  color: var(--secondary-alternate-color);
+}
 
-  .highlight-color{
-    color: var(--highlight-color);
-  }
+.highlight-color {
+  color: var(--highlight-color);
+}
 
-  .hightlight-alternate-color{
-    color: var(--hightlight-alternate-color);
-  }
+.hightlight-alternate-color {
+  color: var(--hightlight-alternate-color);
+}
+
+/* Clases de color de fondo */
+.primary-background-color {
+  background-color: var(--primary-color);
+}
+
+.primary-alternate-background-color {
+  background-color: var(--primary-alternate-color);
+}
+
+.secondary-background-color {
+  background-color: var(--secondary-color);
+}
+
+.secondary-alternate-background-color {
+  background-color: var(--secondary-alternate-color);
+}
+
+.highlight-background-color {
+  background-color: var(--highlight-color);
+}
+
+.hightlight-alternate-background-color {
+  background-color: var(--hightlight-alternate-color);
+}

@@ -1,36 +1,36 @@
 import React from "react";
 import "./Footer.css";
+import logo from "../../assets/Logo.svg"
 
 function Footer() {
   return (
-    <footer>
-      <div class="footer-content">
-        <div class="logo">
-          <img src="" alt="" />
+    <footer className="footer">
+        <div className="logo-footer">
+          <img src={logo} alt="" />
         </div>
-        <nav class="footer-nav">
-          <h2>Doormat Navigation</h2>
-          <ul>
+        <nav className="footer-nav">
+          <h2 className="title-footer primary-alternate-color markazi">Doormat Navigation</h2>
+          <ul className="footer-links markazi">
             <li>
-              <a href="/home">Home</a>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <a href="/menu">Menu</a>
+              <a href="#menu">Menu</a>
             </li>
             <li>
-              <a href="/reservations">Reservations</a>
+              <a href="#reservations">Reservations</a>
             </li>
             <li>
-              <a href="/order-online">Order Online</a>
+              <a href="#order-online">Order Online</a>
             </li>
             <li>
-              <a href="/login">Login</a>
+              <a href="#login">Login</a>
             </li>
           </ul>
         </nav>
-        <div class="footer-contact">
-          <h2>Contact</h2>
-          <address>
+        <div className="footer-contact">
+          <h2 className="title-footer primary-alternate-color markazi">Contact</h2>
+          <address className="markazi">
             <p>Address: 1234 Street Name, City, State, ZIP</p>
             <p>Phone Number: (123) 456-7890</p>
             <p>
@@ -38,9 +38,9 @@ function Footer() {
             </p>
           </address>
         </div>
-        <div class="footer-social">
-          <h2>Social Media Links</h2>
-          <address>
+        <div className="footer-social">
+          <h2 className="title-footer primary-alternate-color markazi">Social Media Links</h2>
+          <address className="markazi">
             <p>Address: 1234 Street Name, City, State, ZIP</p>
             <p>Phone Number: (123) 456-7890</p>
             <p>
@@ -48,7 +48,6 @@ function Footer() {
             </p>
           </address>
         </div>
-      </div>
     </footer>
   );
 }
