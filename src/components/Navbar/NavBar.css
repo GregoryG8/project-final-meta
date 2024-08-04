@@ -23,7 +23,7 @@ header {
 
 
 
-.page-links-container li>a {
+.page-links-container a {
     text-decoration: none;
     color: black;
 }
