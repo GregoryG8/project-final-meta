@@ -13,6 +13,14 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
     instructions: "",
   });
 
+  const [errors, setErrors] = useState({
+    date: "",
+    time: "",
+    numberPersons: "",
+    name: "",
+    phone: "",
+  });
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -21,13 +29,28 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.date) newErrors.date = "Date is required";
+    if (!formData.time) newErrors.time = "Time is required";
+    if (!formData.numberPersons || formData.numberPersons < 1) newErrors.numberPersons = "Number of persons must be at least 1";
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!/^\d{10}$/.test(formData.phone)) newErrors.phone = "Phone number must be 10 digits";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  console.log(errors);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const success = submitAPI(formData); // Usa submitAPI importada
-    if (success) {
-      alert("Reservation submitted successfully!");
-    } else {
-      alert("Failed to submit reservation.");
+    if (validateForm()) {
+      const success = submitAPI(formData); // Usa submitAPI importada
+      if (success) {
+        alert("Reservation submitted successfully!");
+      } else {
+        alert("Failed to submit reservation.");
+      }
     }
   };
 
@@ -60,6 +83,7 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             }}
             required
           />
+          {errors.date && <p className="error">{errors.date}</p>}
         </div>
 
         <div className="input-container">
@@ -81,6 +105,7 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
               </option>
             ))}
           </select>
+          {errors.time && <p className="error">{errors.time}</p>}
         </div>
 
         <div className="input-container">
@@ -116,6 +141,7 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             onChange={handleInputChange}
             required
           />
+          {errors.numberPersons && <p className="error">{errors.numberPersons}</p>}
         </div>
         <div className="input-container">
           <label htmlFor="name" className="karla">
@@ -130,6 +156,7 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             onChange={handleInputChange}
             required
           />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div className="input-container">
           <label htmlFor="phone" className="karla">
@@ -144,6 +171,7 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             onChange={handleInputChange}
             required
           />
+          {errors.phone && <p style={{color:"red", margin: 0, fontSize:"0.8rem"}} className="error karla">{errors.phone}</p>}
         </div>
         <div className="input-container">
           <label htmlFor="instructions" className="karla">
