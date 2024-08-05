@@ -1,8 +1,7 @@
-// BookingPage.js
-
 import React, { useReducer, useState, useEffect } from "react";
 import NavBar from "../../components/Navbar/NavBar";
 import BookingForm from "../../components/BookingForm/BookingForm";
+import { fetchAPI } from "../../components/api/api"; // Asegúrate de ajustar la ruta según la ubicación de tu archivo api.js
 import "./BookingPage.css";
 
 // Reducer function to manage availableTimes
@@ -20,35 +19,28 @@ function BookingPage() {
   const [availableTimes, dispatch] = useReducer(timesReducer, []);
 
   useEffect(() => {
-    // Initialize available times
     const initializeTimes = () => {
-      return [
-        "10:00 AM",
-        "11:00 AM",
-        "12:00 PM",
-        "01:00 PM",
-        "02:00 PM",
-        "03:00 PM",
-        "04:00 PM",
-        "05:00 PM",
-        "06:00 PM",
-        "07:00 PM",
-        "08:00 PM",
-      ];
+      const today = new Date();
+      const times = fetchAPI(today); // Usa fetchAPI directamente
+      dispatch({ type: "UPDATE_TIMES", payload: times });
     };
 
-    dispatch({ type: "UPDATE_TIMES", payload: initializeTimes() });
+    initializeTimes();
   }, []);
 
   const updateTimes = (date) => {
-    dispatch({ type: "UPDATE_TIMES", payload: availableTimes });
+    const times = fetchAPI(new Date(date)); // Usa fetchAPI directamente
+    console.log('Fetched times for date', date, times); // Agrega esta línea para depuración
+    dispatch({ type: "UPDATE_TIMES", payload: times });
   };
 
   const handleDateChange = (event) => {
     const newDate = event.target.value;
     setSelectedDate(newDate);
+    console.log('New selected date:', newDate); // Agrega esta línea para depuración
     updateTimes(newDate);
   };
+  console.log(availableTimes);
 
   return (
     <div className="booking-page">

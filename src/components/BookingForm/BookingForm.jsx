@@ -1,17 +1,16 @@
-// BookingForm.js
-
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { submitAPI } from "../api/api"; // Ajusta la ruta según la ubicación de tu archivo api.js
 import "./BookingForm.css";
 
 function BookingForm({ availableTimes, selectedDate, onDateChange }) {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     date: selectedDate,
     time: "",
     occasion: "",
     numberPersons: "",
     name: "",
     phone: "",
-    Instructions: "",
+    instructions: "",
   });
 
   const handleInputChange = (event) => {
@@ -24,8 +23,20 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission
+    const success = submitAPI(formData); // Usa submitAPI importada
+    if (success) {
+      alert("Reservation submitted successfully!");
+    } else {
+      alert("Failed to submit reservation.");
+    }
   };
+
+  useEffect(() => {
+    setFormData((prevData) => ({
+      ...prevData,
+      date: selectedDate,
+    }));
+  }, [selectedDate]);
 
   return (
     <section className="booking-container">
@@ -45,8 +56,9 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             value={formData.date}
             onChange={(e) => {
               handleInputChange(e);
-              onDateChange(e); // Notify the parent component of the date change
+              onDateChange(e); // Notifica al componente padre del cambio de fecha
             }}
+            required
           />
         </div>
 
@@ -60,7 +72,9 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
             value={formData.time}
             onChange={handleInputChange}
             className="karla"
+            required
           >
+            <option value="">Select a time</option>
             {availableTimes.map((time) => (
               <option key={time} className="karla" value={time}>
                 {time}
@@ -88,20 +102,61 @@ function BookingForm({ availableTimes, selectedDate, onDateChange }) {
         </div>
 
         <div className="number-persons-container">
-            <label htmlFor="name" className="karla">Number of persons: </label>
-            <input className="number-persons karla" type="number" min={1} max={10}/>
+          <label htmlFor="number-persons" className="karla">
+            Number of persons:
+          </label>
+          <input
+            id="number-persons"
+            name="numberPersons"
+            className="number-persons karla"
+            type="number"
+            min={1}
+            max={10}
+            value={formData.numberPersons}
+            onChange={handleInputChange}
+            required
+          />
         </div>
         <div className="input-container">
-            <label htmlFor="name" className="karla">Name</label>
-            <input className="karla" type="text"/>
+          <label htmlFor="name" className="karla">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            className="karla"
+            type="text"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
         </div>
         <div className="input-container">
-            <label htmlFor="phone" className="karla">Phone</label>
-            <input type="tel" className="karla"/>
+          <label htmlFor="phone" className="karla">
+            Phone
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            className="karla"
+            value={formData.phone}
+            onChange={handleInputChange}
+            required
+          />
         </div>
         <div className="input-container">
-            <label htmlFor="instructions" className="karla">Instructions</label>
-            <input className="karla" type="text"/>
+          <label htmlFor="instructions" className="karla">
+            Instructions
+          </label>
+          <input
+            id="instructions"
+            name="instructions"
+            className="karla"
+            type="text"
+            value={formData.instructions}
+            onChange={handleInputChange}
+          />
         </div>
         <input
           type="submit"
