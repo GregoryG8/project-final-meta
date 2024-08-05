@@ -20,7 +20,7 @@ function NavBar() {
         >
           <Link to="/">
             <li className="links">
-              <a href="#home">Home</a> <span></span>
+              Home<span></span>
             </li>
           </Link>
           <li className="links">
