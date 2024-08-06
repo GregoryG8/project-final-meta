@@ -10,7 +10,7 @@ function NavBar() {
     setIsMenuOpen(!isMenuOpen); // Cambia el estado a su opuesto
   };
   return (
-    <header>
+    <header className="header-navbar">
       <nav className="nav-bar">
         <img className="logo" src={logo} alt="Logo" />
         <ul
